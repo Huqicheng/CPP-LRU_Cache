@@ -83,7 +83,7 @@ bool LRUCache::putValue(int key, int value)
   
 void LRUCache::displayNodes()
 {  
-    CacheNode *p=p_cache_list_head->next;
+    CacheNode *p = p_cache_list_head->next;
     while (p->next!=NULL)
     {  
         std::cout << " Key : " << p->key << " Value : " << p->value << std::endl;
