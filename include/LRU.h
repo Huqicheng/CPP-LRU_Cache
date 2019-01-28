@@ -33,8 +33,8 @@ private:
       
     int cache_size_;
     int cache_real_size_;
-    CacheNode * p_cache_list_head;
-    CacheNode * p_cache_list_tail;
+    CacheNode<DataType> * p_cache_list_head;
+    CacheNode<DataType> * p_cache_list_tail;
     void detachNode(CacheNode<DataType> * node);
     void addToFront(CacheNode<DataType> * node);
 };
