@@ -18,7 +18,7 @@ template <class DataType>
 LRUCache<DataType>::~LRUCache()
 {
     // Delete and release all nodes from the LRU list
-    CacheNode *p;  
+    CacheNode<DataType> * p;  
     p = p_cache_list_head->next;  
     while (p!=NULL)  
     {     
