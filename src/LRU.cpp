@@ -31,7 +31,7 @@ LRUCache<DataType>::~LRUCache()
 template <class DataType>
 DataType LRUCache<DataType>::getValue(int key)  
 {  
-    CacheNode<DataType> * p=p_cache_list_head->next;      
+    CacheNode<DataType> * p = p_cache_list_head->next;      
     while (p->next != NULL)
     {  
         // TODO: get node by HashTable

@@ -19,10 +19,8 @@ public:
 
 // Declaration of LRU Cache
 template <class DataType>
-class LRUCache {  
-      
+class LRUCache {
 public:  
-      
     LRUCache(int cache_size = 10); // Constructor
     ~LRUCache(); // Destructor
     DataType getValue(int key);
@@ -30,7 +28,6 @@ public:
     void displayNodes(); // For debugging
        
 private:  
-      
     int cache_size_;
     int cache_real_size_;
     CacheNode<DataType> * p_cache_list_head;
