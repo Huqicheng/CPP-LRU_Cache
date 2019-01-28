@@ -2,11 +2,10 @@ cmake_minimum_required(VERSION 2.8.9)
 project(lru_cache)
 
 include_directories(include)
-link_directories(include)
 
 add_subdirectory(src)
 
 add_executable(main main.cpp)
 
 # link libs to the program entry
-target_link_libraries(main liblrucache)
+target_link_libraries(main lrucache)
