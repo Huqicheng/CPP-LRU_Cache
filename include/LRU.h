@@ -13,8 +13,8 @@ class CacheNode {
 public:
     int key;
     DataType value;
-    CacheNode * next; // next node
-    CacheNode * pre; // previous node
+    CacheNode<DataType> * next; // next node
+    CacheNode<DataType> * pre; // previous node
 };
 
 // Declaration of LRU Cache

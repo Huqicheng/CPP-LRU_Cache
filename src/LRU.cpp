@@ -87,7 +87,7 @@ bool LRUCache<DataType>::putValue(int key, DataType value)
 template <class DataType>
 void LRUCache<DataType>::displayNodes()
 {  
-    CacheNode *p = p_cache_list_head->next;
+    CacheNode<DataType> *p = p_cache_list_head->next;
     while (p->next!=NULL)
     {  
         std::cout << " Key : " << p->key << " Value : " << p->value << std::endl;
