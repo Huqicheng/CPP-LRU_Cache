@@ -1,1 +1,1 @@
-add_library(liblrucache LRU.cpp)
+add_library(lrucache LRU.cpp)
