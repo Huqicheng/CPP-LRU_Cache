@@ -5,22 +5,28 @@
 
 namespace LRU {
 
-// definition of a double linked list node
-typedef struct CacheNode {
-    int key;
-    int value;
-    struct CacheNode * next; // next node
-    struct CacheNode * pre; // previous node
-} CacheNode;
+typedef unsigned char Byte;
 
+// Declaration of a double linked list node
+template <class DataType>
+class CacheNode {
+public:
+    int key;
+    DataType value;
+    CacheNode * next; // next node
+    CacheNode * pre; // previous node
+};
+
+// Declaration of LRU Cache
+template <class DataType>
 class LRUCache {  
       
 public:  
       
-    LRUCache(int cache_size = 10); //Constructor
-    ~LRUCache(); //Destructor
-    int getValue(int key);
-    bool putValue(int key, int value);
+    LRUCache(int cache_size = 10); // Constructor
+    ~LRUCache(); // Destructor
+    DataType getValue(int key);
+    bool putValue(int key, DataType value);
     void displayNodes(); // For debugging
        
 private:  
@@ -29,8 +35,8 @@ private:
     int cache_real_size_;
     CacheNode * p_cache_list_head;
     CacheNode * p_cache_list_tail;
-    void detachNode(CacheNode * node);
-    void addToFront(CacheNode * node);
+    void detachNode(CacheNode<DataType> * node);
+    void addToFront(CacheNode<DataType> * node);
 };
 
 }

@@ -2,7 +2,7 @@
 
 int main()
 {
-    LRU::LRUCache * cache = new LRU::LRUCache();
+    LRU::LRUCache<int> * cache = new LRU::LRUCache<int>();
     cache->putValue(2, 2);
     cache->displayNodes();
 

@@ -2,18 +2,20 @@
 #include <LRU.h>
 using namespace LRU;
 
-LRUCache::LRUCache(int cache_size):cache_size_(cache_size), cache_real_size_(0)
+template <class DataType>
+LRUCache<DataType>::LRUCache(int cache_size):cache_size_(cache_size), cache_real_size_(0)
 {
     // Create initial cache
-    p_cache_list_head = new CacheNode();
-    p_cache_list_tail = new CacheNode();
+    p_cache_list_head = new CacheNode<DataType>();
+    p_cache_list_tail = new CacheNode<DataType>();
     p_cache_list_head->pre = NULL;
     p_cache_list_head->next = p_cache_list_tail;
     p_cache_list_tail->pre = p_cache_list_head;
     p_cache_list_tail->next = NULL;
 }
 
-LRUCache::~LRUCache()
+template <class DataType>
+LRUCache<DataType>::~LRUCache()
 {
     // Delete and release all nodes from the LRU list
     CacheNode *p;  
@@ -26,7 +28,8 @@ LRUCache::~LRUCache()
     delete p_cache_list_tail;  
 }
 
-int LRUCache::getValue(int key)  
+template <class DataType>
+DataType LRUCache<DataType>::getValue(int key)  
 {  
     CacheNode *p=p_cache_list_head->next;      
     while (p->next != NULL)
@@ -43,7 +46,8 @@ int LRUCache::getValue(int key)
     return -1;
 } 
 
-bool LRUCache::putValue(int key, int value)  
+template <class DataType>
+bool LRUCache<DataType>::putValue(int key, DataType value)  
 {  
     CacheNode *p = p_cache_list_head->next;
     while (p->next != NULL)
@@ -80,8 +84,8 @@ bool LRUCache::putValue(int key, int value)
     return true;
 }  
   
-  
-void LRUCache::displayNodes()
+template <class DataType>
+void LRUCache<DataType>::displayNodes()
 {  
     CacheNode *p = p_cache_list_head->next;
     while (p->next!=NULL)
@@ -95,14 +99,16 @@ void LRUCache::displayNodes()
 }
 
 // take node from the list, like 'delete' it from the list
-void LRUCache::detachNode(CacheNode * node)  
+template <class DataType>
+void LRUCache<DataType>::detachNode(CacheNode<DataType> * node)  
 {  
     node->pre->next = node->next;
     node->next->pre = node->pre;
 }
 
 // add node the front of the list
-void LRUCache::addToFront(CacheNode * node)  
+template <class DataType>
+void LRUCache<DataType>::addToFront(CacheNode<DataType> * node)  
 {  
     node->next = p_cache_list_head->next;  
     p_cache_list_head->next->pre = node;  
