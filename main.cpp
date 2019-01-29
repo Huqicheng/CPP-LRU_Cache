@@ -1,3 +1,4 @@
+#include<Includes.h>
 #include <LRU.h>
 using namespace LRU;
 int main()
